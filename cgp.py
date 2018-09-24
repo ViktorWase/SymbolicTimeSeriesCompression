@@ -216,6 +216,7 @@ class CGP():
 		assert gene_counter == len(self.gene)-1
 
 		nodes[self.gene[gene_counter]].update_is_used()
+		assert nodes[self.gene[gene_counter]].is_used
 
 		#See if any variables are used
 		is_any_varible_used = False
@@ -229,7 +230,6 @@ class CGP():
 
 		assert len(nodes) == int((len(self.gene)-1)/3)
 		self.used_genes = [node.is_used for node in nodes]
-
 
 	def eval(self, X, parameters = [], derivative=False, der_dir=0):
 		"""

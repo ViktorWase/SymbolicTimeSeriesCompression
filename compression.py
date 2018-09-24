@@ -2,10 +2,6 @@ from math import fabs
 
 from gradient_descent import grad_descent
 
-def tune_parameters(cgp, buff):
-	#TODO: Write.
-	return [0.0]*cgp.nr_of_used_pars
-
 def nr_of_output_bits(nr_of_funcs, resolution, nr_of_pars, power):
 	# TODO: Add the number of output points to the output bitstream.
 
@@ -89,7 +85,6 @@ if __name__ == '__main__':
 
 	from operation_table import op_table
 
-
 	gene1 = [1,0,1,2]
 	gene2 = [0,0,1,2]
 	func1 = CGP(1, op_table, gene1, nr_of_parameters=1)
@@ -102,4 +97,3 @@ if __name__ == '__main__':
 
 	print("Compression rate: ", get_compression_rate(funcs, data, 1.0e-3))
 
-	

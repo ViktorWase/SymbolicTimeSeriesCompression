@@ -24,7 +24,6 @@ def gradient(cgp, x_data, y_data, pars, h=1.0e-10):
 
 	return gradients
 
-
 def grad_descent(cgp, x_data, y_data, max_iter=100):
 	#TODO: This is a stupid function by a stupid person.
 	assert len(x_data) == len(y_data)

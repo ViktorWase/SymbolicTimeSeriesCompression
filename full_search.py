@@ -2,8 +2,6 @@ from math import inf
 
 from tune_compressor import neg_fitness
 
-#from newton_raphson import root_finders
-
 def get_all_possible_node_parts(prev_nodes, op_table):
 	node_parts = []
 	for op_nr in range(len(op_table)):
@@ -147,9 +145,10 @@ def full_search_part(data, nr_of_parameters, dims, nr_of_nodes, error_func):
 def full_search(max_nr_of_nodes, data, nr_of_parameters, error_func, dims=1):
 	best_err = inf
 	best_gene = None
+	total_dims = nr_of_parameters+dims
 	for nr_of_nodes in range(1, max_nr_of_nodes+1):
 		print("Nr of nodes:", nr_of_nodes)
-		gene, err = full_search_part(data, nr_of_parameters, dims, nr_of_nodes, error_func)
+		gene, err = full_search_part(data, nr_of_parameters, total_dims, nr_of_nodes, error_func)
 
 		if err < best_err:
 			best_err = err

@@ -16,7 +16,9 @@ def neg_fitness(max_err_allowed, cgps, y_data_list, freq, resolution):
 def objective_function(new_cgp_gene, old_cgps, max_err_allowed, y_data_list, freq, resolution, nr_of_parameters, op_table):
 	new_cgp = CGP(1, op_table, new_cgp_gene, nr_of_parameters=nr_of_parameters)
 
-	# TODO: Break if the CGP is constant.
+	# Break if the CGP is constant.
+	if new_cgp.is_constant:
+		return 1.0e20
 
 	cgps = [new_cgp] + old_cgps
 	return neg_fitness(max_err_allowed, cgps, y_data_list, freq, resolution)

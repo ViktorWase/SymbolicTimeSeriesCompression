@@ -1,6 +1,7 @@
 from full_search import full_search
 from tune_compressor import objective_function
 from operation_table import op_table
+from cgp import CGP
 
 def tune_compressor(max_nr_of_nodes, max_err_allowed, y_data_list, freq=1.0, resolution=64, nr_of_parameters=4, max_nr_of_funcs=4):
 	best_cgp_list = []
