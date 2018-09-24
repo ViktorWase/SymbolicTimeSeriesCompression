@@ -31,7 +31,7 @@ def grad_descent(cgp, x_data, y_data, max_iter=100):
 	pars = [1.0e-2]*cgp.nr_of_used_pars
 	old_err = l2_err_sqr(cgp, x_data, y_data, pars)
 
-	step_size = 1.0e-1 # TODO: Make adaptive.
+	step_size = 1.0e-1
 
 	for itr in range(max_iter):
 		grad = gradient(cgp, x_data, y_data, pars)
@@ -44,5 +44,8 @@ def grad_descent(cgp, x_data, y_data, max_iter=100):
 			old_err = new_err
 			pars = new_pars
 		else:
-			break
+			step_size /= 5.0
+
+			if step_size < 1.0e-10:
+				break
 	return pars
